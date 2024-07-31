@@ -5,45 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ingimar Tomasson - Personal Webpage</title>
     <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f4f4f4;
+        --text-color: #333;
+      }
+
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
         line-height: 1.6;
-        color: #333;
+        color: var(--text-color);
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
+        background-color: var(--background-color);
       }
+
       h1,
-      h2 {
-        color: #2c3e50;
+      h2,
+      h3 {
+        color: var(--secondary-color);
       }
-      .contact-info {
-        background-color: #f4f4f4;
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      nav {
+        background-color: var(--secondary-color);
         padding: 10px;
         border-radius: 5px;
-      }
-      .experience,
-      .education {
         margin-bottom: 20px;
       }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 10px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--primary-color);
+      }
+
+      .contact-info,
+      .skills {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .experience,
+      .education {
+        margin-bottom: 30px;
+      }
+
       .experience-item,
       .education-item {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e0e0e0;
       }
-      .skills {
-        background-color: #e8f4f8;
+
+      .experience-item:last-child,
+      .education-item:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: var(--secondary-color);
+      }
+
+      .dark-mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: var(--secondary-color);
+        color: #fff;
+        border: none;
         padding: 10px;
         border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dark-mode-toggle:hover {
+        background-color: var(--primary-color);
+      }
+
+      body.dark-mode {
+        --primary-color: #3498db;
+        --secondary-color: #ecf0f1;
+        --background-color: #2c3e50;
+        --text-color: #f4f4f4;
+      }
+
+      body.dark-mode .contact-info,
+      body.dark-mode .skills {
+        background-color: #34495e;
       }
     </style>
   </head>
   <body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+      Toggle Dark Mode
+    </button>
+
     <header>
       <h1>Ingimar Tomasson</h1>
       <p>Working in AI | Germany</p>
     </header>
 
-    <section class="contact-info">
+    <nav>
+      <ul>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+
+    <section id="contact" class="contact-info">
       <h2>Contact Information</h2>
       <p>📱 +44 7966665386</p>
       <p>✉️ ingitom99@gmail.com</p>
@@ -55,7 +160,7 @@
       </p>
     </section>
 
-    <section class="skills">
+    <section id="skills" class="skills">
       <h2>Top Skills</h2>
       <ul>
         <li>Academic Research</li>
@@ -64,7 +169,7 @@
       </ul>
     </section>
 
-    <section class="experience">
+    <section id="experience" class="experience">
       <h2>Professional Experience</h2>
 
       <div class="experience-item">
@@ -149,7 +254,7 @@
       </div>
     </section>
 
-    <section class="education">
+    <section id="education" class="education">
       <h2>Education</h2>
 
       <div class="education-item">
@@ -170,5 +275,11 @@
         <p><strong>Highgate School</strong> | 2007 - 2018</p>
       </div>
     </section>
+
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
   </body>
 </html>
